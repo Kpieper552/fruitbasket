@@ -1,0 +1,58 @@
+form {
+    background-color: burlywood;
+    width: 400px;
+    margin-left: 80px;
+    padding: 40px;
+    border-radius: 25px;
+}
+
+#lab {
+    width: 400px;
+}
+#labe {
+    width: 100px;
+    margin-outside: 150px;
+}
+h1 {
+    color: green;
+    width: 400px;
+    margin-left: 80px;
+}
+p {
+    color: red;
+}
+
+#basket {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    width: 400px;
+    background-color: burlywood;
+    padding: 40px;
+    border-radius: 25px;
+
+}
+h4, h3 {
+    margin-left: 80px;
+    background-color: antiquewhite;
+    align-items: center;
+    margin-outside: 5px;
+    width: 200px;
+    border-radius: 25px;
+    padding: 25px;
+}
+
+#fruit {
+    background-color: lightgreen;
+    margin-outside: 35px;
+    width: 30%px;
+    height: 25px;
+}
+#fruitbasket {
+    background-color: lightgreen;
+    margin-outside: 35px;
+    width: 50%px;
+    height: 25px;
+}
+
+
