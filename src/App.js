@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './App.css';
-import {firstInputPolyfill, resetFirstInputPolyfill} from "web-vitals/dist/modules/lib/polyfills/firstInputPolyfill";
+//import {firstInputPolyfill, resetFirstInputPolyfill} from "web-vitals/dist/modules/lib/polyfills/firstInputPolyfill";
 
 function App() {
     const [strawberryCounter, setStrawberryCounter] = useState(0); console.log(strawberryCounter)
@@ -10,6 +10,7 @@ function App() {
     const [kiwiCounter, setKiwiCounter] = useState(0); console.log( kiwiCounter)
     //const [kiwiCounter] = useEffect(0); console.log(useEffect())
 //reset naar initial state useeffect reset totonClick={() =>useEffect(0)}
+
     const {register, handleSubmit, watch, errors} = useForm({
         mode: 'onChange'
     });
@@ -18,7 +19,6 @@ function App() {
         console.log(data, " heeft besteld: ", strawberryCounter, " 🍓 Aardbeien", bananaCounter, " 🍌 Bananen ", appleCounter, " 🍏 Appels ", kiwiCounter, "🥝 Kiwi's "  )
     }
     return (
-
         <>
             <h1>Fruitmand bezorgservice</h1>
             <div id="basket">
@@ -81,25 +81,28 @@ function App() {
                     <input ref={register} type="radio" name="frequency" id="field-everymonth" value="everymonth"/>
                     elke maand
                 </label><br/>
-                <label htmlFor="field-frequency">
-                    <input ref={register({required: watchAnders})} type="radio" name="frequency" id="field-somethingother" value="somethingother"/>
+                <label htmlFor="field-frequentie">
+                    <input ref={register} type="radio" name="frequency" id="field-somethingother" value="somethingother"/>
                     anders
-                </label>{watchAnders && <input type="text" name="remark bezorgfrequentie" placeholder="bezorgfrequentie" ref={register({})} />}
-                <h6>Opmerkingen:</h6>
+                </label>
+                <label>
+                    {watchAnders && <input type="text" name="remark bezorgfrequentie" placeholder="bezorgfrequentie" ref={register({})} />}
+                </label>
+                    <h6>Opmerkingen:</h6>
                 <label>
                     <input id="lab" ref={register} type="text" name="remark" placeholder="opmerking"/><br/><br/>
                 </label>
                 <label htmlFor="field-condition">
-                    <input ref={register ({required: true})} type="checkbox" name="condition" id="field-agree" value="agreed"/>
+                    <input ref={register({required: true})} type="checkbox" name="condition" id="field-agree" value="agreed"/>
                     {errors.condition && <p>❌aanvinken is verplicht</p>}
                     ik ga akkoord met de voorwaarden</label><br/><br/>
                 <button type="submit">
                     verzenden
                 </button>
-            </form>
-        </>
-    );
+                </form>
+                </>
+
+);
 }
 
 export default App;
-
