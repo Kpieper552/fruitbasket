@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './App.css';
-//import {firstInputPolyfill, resetFirstInputPolyfill} from "web-vitals/dist/modules/lib/polyfills/firstInputPolyfill";
+
 
 function App() {
-    const [strawberryCounter, setStrawberryCounter] = useState(0); console.log(strawberryCounter)
-    const [bananaCounter, setBananaCounter] = useState(0); console.log(bananaCounter)
-    const [appleCounter, setAppleCounter] = useState(0); console.log(appleCounter)
-    const [kiwiCounter, setKiwiCounter] = useState(0); console.log( kiwiCounter)
+    const [strawberryCounter, setStrawberryCounter] = useState(0);
+            console.log(strawberryCounter)
+    const [bananaCounter, setBananaCounter] = useState(0);
+            console.log(bananaCounter)
+    const [appleCounter, setAppleCounter] = useState(0);
+            console.log(appleCounter)
+    const [kiwiCounter, setKiwiCounter] = useState(0);
+            console.log( kiwiCounter)
+    const [totalCounter, setTotalCounter] = useState(0);
+    console.log( totalCounter)
+    const [priceCounter, setPriceCounter] = useState(0);
+    console.log( priceCounter)
     //const [kiwiCounter] = useEffect(0); console.log(useEffect())
 //reset naar initial state useeffect reset totonClick={() =>useEffect(0)}
 
@@ -15,40 +23,59 @@ function App() {
         mode: 'onChange'
     });
     const watchAnders = watch("frequency", "somethingother");
+
     function onSubmit(data) {
-        console.log(data, " heeft besteld: ", strawberryCounter, " 🍓 Aardbeien", bananaCounter, " 🍌 Bananen ", appleCounter, " 🍏 Appels ", kiwiCounter, "🥝 Kiwi's "  )
+        console.log(data, " heeft besteld: ", strawberryCounter, " 🍓 Aardbeien", bananaCounter, " 🍌 Bananen ", appleCounter, " 🍏 Appels ", kiwiCounter, "🥝 Kiwi's ", "fruittotal", totalCounter, "to pay", priceCounter)
     }
     return (
         <>
             <h1>Fruitmand bezorgservice</h1>
             <div id="basket">
             <h4> 🍌 Bananen     <button id="fruit"
-                type="button" onClick={() => setBananaCounter(bananaCounter -1)}
-            >- </button> {bananaCounter}  <button id="fruit"
-                type="button" onClick={() => setBananaCounter(bananaCounter +1)}
-                >+</button></h4>
-
+                                        type="button" disabled={bananaCounter < 1} onClick={() => setBananaCounter(bananaCounter -1)}
+            >- </button> {bananaCounter} <button id="fruit"
+                                                     type="button" onClick={() => setBananaCounter(bananaCounter +1)}
+            >+</button>
+                <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setBananaCounter(bananaCounter === 0)}>reset 🍌</button>
+            </h4>
             <h4> 🍓 Aardbeien   <button id="fruit"
-                type="button" onClick={() => setStrawberryCounter(strawberryCounter -1)}
+                type="button" disabled={strawberryCounter < 1} onClick={() => setStrawberryCounter(strawberryCounter -1)}
             >- </button> {strawberryCounter} <button id="fruit"
                 type="button" onClick={() => setStrawberryCounter(strawberryCounter +1)}
-                >+</button></h4>
-
+                >+</button>
+                <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setStrawberryCounter(strawberryCounter === 0)}>reset 🍓</button>
+            </h4>
             <h4> 🍏 Appels      <button id="fruit"
-                type="button" onClick={() => setAppleCounter(appleCounter -1)}
+                type="button" disabled={appleCounter < 1} onClick={() => setAppleCounter(appleCounter -1)}
             >-</button> {appleCounter} <button id="fruit"
                 type="button" onClick={() => setAppleCounter(appleCounter +1)}
-            >+</button></h4>
-
+            >+</button>
+                <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setAppleCounter(appleCounter === 0)}>reset 🍏</button><br/>
+            </h4>
             <h4> 🥝 Kiwi's      <button id="fruit"
-                type="button" onClick={() => setKiwiCounter(kiwiCounter -1)}
+                type="button" disabled={kiwiCounter < 1} onClick={() => setKiwiCounter(kiwiCounter -1)}
             >-</button>  {kiwiCounter} <button id="fruit"
                 type="button" onClick={() => setKiwiCounter(kiwiCounter +1)}
+            >+</button>
+                <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setKiwiCounter(kiwiCounter === 0)}>reset 🥝</button>
+            </h4>
+                <h3>Heeft besteld in fruitbasket<br/>
+                    <br/>
+                    <button id="fruittotalbasket" onClick={onSubmit}>
+                        Bananen 🍌 {bananaCounter}<br/>
+                        Aarbeien 🍓 {strawberryCounter}<br/>
+                        Appels 🍏 {appleCounter}<br/>
+                        Kiwi's 🥝 {kiwiCounter}
+                    </button><br/>
+                    <br/>
+                    <button onClick={() => setTotalCounter(bananaCounter + strawberryCounter + kiwiCounter + appleCounter)}>
+                        CLICK totaal fruit {totalCounter}</button><br/>
+                    <button onClick={() => setPriceCounter(totalCounter * 0.30)}>
+                        CLICK totaal te betalen € {priceCounter}</button>
+                 </h3>
 
-            >+</button></h4>
-
-            <h3>fruitbasket <button id="fruitbasket" type="reset" name="reset fruit">RESET</button></h3>
             </div>
+
             <h1>Fruit Bestelformulier</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <br/>voornaam<br/>
@@ -61,10 +88,10 @@ function App() {
                 <input id="lab" ref={register({required:true, min: 18})} type="text" name="age" placeholder="leeftijd"/>
                 {errors.age && <p>❌leeftijd van 18 jaar is verplicht</p>}
                 <br/>postcode<br/>
-                <input id="labe" ref={register({required: true, validate:/(^[0-9]{4})([A-Za-z0-9]{2}$)?/})} type="text" name="city" placeholder="postcode"/>
+                <input id="labe" ref={register({required: true, pattern:/(^[0-9]{4})([A-Za-z0-9]{2}$)?/})} type="text" name="city" placeholder="postcode"/>
                 {errors.city && <p>❌postcode is verplicht: 0000ab</p>}
                 <br/>huisnummer<br/>
-                <input id="labe" ref={register({required: true, validate: /^\d+[a-zA-Z]*$/})} type="text" name="housenumber" placeholder="huisnummer"/>
+                <input id="labe" ref={register({required: true, pattern: /^\d+[a-zA-Z]*$/})} type="text" name="housenumber" placeholder="huisnummer"/>
                 {errors.housenumber && <p>❌huisnummer is verplicht incl. toevoeging i.v.t.</p>}
                 <br/>
 
@@ -86,7 +113,7 @@ function App() {
                     anders
                 </label>
                 <label>
-                    {watchAnders && <input type="text" name="remark bezorgfrequentie" placeholder="bezorgfrequentie" ref={register({})} />}
+                    {watchAnders === "somethingother" && <input type="text" name="remark bezorgfrequentie" placeholder="bezorgfrequentie" ref={register({})} />}
                 </label>
                     <h6>Opmerkingen:</h6>
                 <label>
