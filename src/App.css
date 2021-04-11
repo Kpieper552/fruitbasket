@@ -32,34 +32,44 @@ p {
     border-radius: 25px;
 
 }
-h4, h3 {
+h4 {
     margin-left: 30px;
     background-color: antiquewhite;
     align-items: center;
     margin-outside: 0px;
     width: 300px;
     border-radius: 25px;
-    padding: 25px;
+    padding: 10px;
+}
+h3 {
+    margin-left: 30px;
+    background-color: antiquewhite;
+    align-content: center;
+    margin-outside: 0px;
+    width: 300px;
+    border-radius: 25px;
+    padding: 15px;
 }
 
 #fruit {
     background-color: lightgreen;
-    margin-outside: 35px;
+    margin-outside: 50px;
+    margin-left: 8px;
+    margin-right: 8px;
     width: 30%px;
     height: 25px;
 }
 #fruitbasket {
     background-color: lightgreen;
     margin-outside: 30px;
-    margin-left: 20px;
-    width: 50%px;
+    margin-left: 30px;
+    width: 60%px;
     height: 25px;
 }
 
 #fruittotalbasket {
     background-color: lime;
     margin-outside: 30px;
-    margin-left: 30px;
     width: 80%px;
     height: 130px;
 }
