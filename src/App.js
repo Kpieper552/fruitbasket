@@ -3,29 +3,18 @@ import { useForm } from 'react-hook-form';
 import './App.css';
 
 
+
 function App() {
     const [strawberryCounter, setStrawberryCounter] = useState(0);
-            console.log(strawberryCounter)
     const [bananaCounter, setBananaCounter] = useState(0);
-            console.log(bananaCounter)
     const [appleCounter, setAppleCounter] = useState(0);
-            console.log(appleCounter)
     const [kiwiCounter, setKiwiCounter] = useState(0);
-            console.log( kiwiCounter)
     const [totalCounter, setTotalCounter] = useState(0);
-    console.log( totalCounter)
     const [bananaPrice, setBananaPrice] = useState(0);
-    console.log( bananaPrice)
     const [kiwiPrice, setKiwiPrice] = useState(0);
-    console.log( kiwiPrice)
     const [applePrice, setApplePrice] = useState(0);
-    console.log( applePrice)
     const [strawberryPrice, setStrawberryPrice] = useState(0);
-    console.log( strawberryPrice)
-    const [priceCounter, setPriceCounter] = useState(0);
-    console.log( priceCounter)
-    //const [kiwiCounter] = useEffect(0); console.log(useEffect())
-//reset naar initial state useeffect reset totonClick={() =>useEffect(0)}
+    //const [data, setData] = useState("")
 
     const {register, handleSubmit, watch, errors} = useForm({
         mode: 'onChange'
@@ -33,58 +22,67 @@ function App() {
     const watchAnders = watch("frequency", "somethingother");
 
     function onSubmit(data) {
-        console.log(data, " heeft besteld: ", strawberryCounter, " 🍓 Aardbeien", bananaCounter, " 🍌 Bananen ", appleCounter, " 🍏 Appels ", kiwiCounter, "🥝 Kiwi's ", "fruittotal price to pay €", totalCounter)
+        console.log(data);
     }
+
     return (
         <>
-            <h1>Fruitmand bezorgservice</h1>
-            <div id="basket">
+            <h3>Fruitmand bezorgservice</h3>
+            <ul id="basket">
+                <li>
                 <h4>🍌 Bananen
                     <button id="fruit" type="button" disabled={bananaCounter < 1} onClick={() => setBananaCounter(bananaCounter -1)}> -</button>
                     {bananaCounter}
                     <button id="fruit" type="button" onClick={() => setBananaCounter(bananaCounter +1)}> +</button>
-                    <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setBananaCounter(bananaCounter === 0)}>reset 🍌</button>
+                    <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setBananaCounter(bananaCounter === 0)}>reset 🍌</button><br/><br/>
+                    <button id="fruittotalbasket" onClick={onSubmit}>
+                        Bananen {bananaCounter} 🍌 prijs per stuk € 0.15
+                    </button>
+                    <button onClick={() => setBananaPrice(bananaCounter * 0.15)}>CLICK totaal 🍌te betalen € {bananaPrice}</button>
                 </h4>
+                </li>
+                <li>
                 <h4>🍓 Aardbeien
                     <button id="fruit" type="button" disabled={strawberryCounter < 1} onClick={() => setStrawberryCounter(strawberryCounter -1)}> -</button>
                     {strawberryCounter}
                     <button id="fruit" type="button" onClick={() => setStrawberryCounter(strawberryCounter +1)}> +</button>
-                    <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setStrawberryCounter(strawberryCounter === 0)}>reset 🍓</button>
+                    <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setStrawberryCounter(strawberryCounter === 0)}>reset 🍓</button><br/><br/>
+                    <button id="fruittotalbasket" onClick={onSubmit}>
+                        Aarbeien {strawberryCounter} 🍓 prijs per stuk € 0.25
+                    </button>
+                    <button onClick={() => setStrawberryPrice(strawberryCounter * 0.25)}>
+                        CLICK totaal 🍓 te betalen € {strawberryPrice}</button>
                 </h4>
+                </li>
+                <li>
                 <h4>🍏 Appels
                     <button id="fruit" type="button" disabled={appleCounter < 1} onClick={() => setAppleCounter(appleCounter -1)}> -</button>
                     {appleCounter}
                     <button id="fruit" type="button" onClick={() => setAppleCounter(appleCounter +1)}> +</button>
-                    <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setAppleCounter(appleCounter === 0)}>reset 🍏</button><br/>
+                    <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setAppleCounter(appleCounter === 0)}>reset 🍏</button><br/><br/>
+                    <button id="fruittotalbasket" onClick={onSubmit}>
+                        Appels {appleCounter} 🍏  prijs per stuk € 0.15
+                    </button>
+                    <button onClick={() => setApplePrice(appleCounter * 0.15)}>
+                        CLICK totaal  🍏 te betalen € {applePrice}</button>
                 </h4>
+                </li>
+                <li>
                 <h4> 🥝 Kiwi's
                     <button id="fruit" type="button" disabled={kiwiCounter < 1} onClick={() => setKiwiCounter(kiwiCounter -1)}>-</button>
                     {kiwiCounter}
                     <button id="fruit" type="button" onClick={() => setKiwiCounter(kiwiCounter +1)}>+</button>
-                    <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setKiwiCounter(kiwiCounter === 0)}>reset 🥝</button>
-                </h4>
-                <h3>Besteld in fruitbasket<br/>
-                    <br/>
+                    <button id="fruitbasket" type="reset" name="reset fruit" onClick={() => setKiwiCounter(kiwiCounter === 0)}>reset 🥝</button><br/><br/>
                     <button id="fruittotalbasket" onClick={onSubmit}>
-                        Bananen {bananaCounter} 🍌  prijs per stuk € 0.15 <br/>
-                        Aarbeien {strawberryCounter} 🍓  prijs per stuk € 0.25<br/>
-                        Appels {appleCounter} 🍏  prijs per stuk € 0.15<br/>
-                        Kiwi's {kiwiCounter} 🥝  prijs per stuk € 0.35
-                    </button><br/>
-                    <br/>
-                    <button onClick={() => setBananaPrice(bananaCounter * 0.15)}>
-                        CLICK totaal 🍌te betalen € {bananaPrice}</button>
+                          Kiwi's {kiwiCounter} 🥝  prijs per stuk € 0.35
+                    </button>
                     <button onClick={() => setKiwiPrice(kiwiCounter * 0.35)}>
                         CLICK totaal  🥝  te betalen € {kiwiPrice}</button>
-                    <button onClick={() => setApplePrice(appleCounter * 0.15)}>
-                        CLICK totaal  🍏 te betalen € {applePrice}</button>
-                    <button onClick={() => setStrawberryPrice(strawberryCounter * 0.25)}>
-                        CLICK totaal 🍓 te betalen € {strawberryPrice}</button>
-                    <button onClick={() => setTotalCounter(bananaPrice + strawberryPrice + kiwiPrice + applePrice)}>
-                        CLICK totaal fruitbasket prijs € {totalCounter}</button><br/>
-                 </h3>
-            </div>
-            <h1>Fruit Bestelformulier</h1>
+                </h4>
+                </li>
+            </ul>
+            <div>
+            <h3>Fruitmand bestelformulier</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <br/>voornaam<br/>
                 <input id="lab" ref={register({required: true, minLength: 3, pattern: /^[A-Za-z]+$/i})} type="text" name="fullName" placeholder="voornaam" />
@@ -133,9 +131,23 @@ function App() {
                 <button type="submit">
                     verzenden
                 </button>
+                <br/>
                 </form>
-                </>
+            </div>
+            <div id="basket">
+                <h4>Totaal besteld in fruitbasket<br/><br/>
+                <button onClick={onSubmit}>
+                    Bananen {bananaCounter} 🍌  <br/>prijs per stuk € 0.15 <br/>
+                    Aarbeien {strawberryCounter} 🍓  <br/>prijs per stuk € 0.25<br/>
+                    Appels {appleCounter} 🍏  <br/>prijs per stuk € 0.15<br/>
+                    Kiwi's {kiwiCounter} 🥝  <br/>prijs per stuk € 0.35
+                </button><br/>
+                <button onClick={() => setTotalCounter(bananaPrice + strawberryPrice + kiwiPrice + applePrice)}>
+                    CLICK totaal fruitbasket prijs € {totalCounter}</button><br/>
+                </h4>
+            </div>
 
+        </>
 );
 }
 

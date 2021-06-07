@@ -1,17 +1,27 @@
+body {
+    background-color: linen;
+}
+@media screen and (min-width: 1600px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }}
+
 form {
+    display: flex;
+    flex-direction: column;
     background-color: burlywood;
-    width: 400px;
-    margin-left: 80px;
-    padding: 40px;
+    padding: 20px;
     border-radius: 25px;
 }
 
 #lab {
-    width: 400px;
+    width: 200px;
 }
 #labe {
-    width: 100px;
-    margin-outside: 150px;
+    width: 200px;
+    margin-outside: 100px;
 }
 h1 {
     color: green;
@@ -21,59 +31,78 @@ h1 {
 p {
     color: red;
 }
-
+ul {
+list-style: none;
+}
 #basket {
     display: flex;
     flex-direction: column;
-    margin-left: 80px;
-    width: 400px;
+    flex-basis: 180px;
+    flex-grow: 0;
+    flex-shrink: 0;
     background-color: burlywood;
-    padding: 40px;
+    padding: 10px;
     border-radius: 25px;
 
 }
 h4 {
-    margin-left: 30px;
+    margin-left: 20px;
+    font-size: 18px;
     background-color: antiquewhite;
     align-items: center;
     margin-outside: 0px;
-    width: 300px;
+    flex-basis: 230px;
+    flex-grow: 0;
+    flex-shrink: 0;
     border-radius: 25px;
-    padding: 10px;
+    padding: 30px;
 }
 h3 {
     margin-left: 30px;
+    font-size: 30px;
+    color: green;
     background-color: antiquewhite;
     align-content: center;
     margin-outside: 0px;
-    width: 300px;
+    flex-basis: 2530px;
+    flex-grow: 0;
+    flex-shrink: 0;
     border-radius: 25px;
     padding: 15px;
 }
 
 #fruit {
     background-color: lightgreen;
+    flex-basis: 150px;
+    flex-grow: 0;
+    flex-shrink: 0;
     margin-outside: 50px;
     margin-left: 8px;
     margin-right: 8px;
-    width: 30%px;
+    width: 28px;
     height: 25px;
 }
 #fruitbasket {
     background-color: lightgreen;
     margin-outside: 30px;
     margin-left: 30px;
-    width: 60%px;
+    flex-basis: 200px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 100px;
     height: 25px;
 }
 
 #fruittotalbasket {
-    background-color: lime;
-    margin-outside: 30px;
-    width: 80%px;
-    height: 130px;
+    display: flex;
+    background-color: lightgreen;
+    flex-basis: 200px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 150px;
 }
 button {
-    background-color: lime;
+    min-height: 50px;
+    background-color: cyan;
 
 }
