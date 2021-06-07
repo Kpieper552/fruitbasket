@@ -27,7 +27,8 @@ function App() {
 
     return (
         <>
-            <h3>Fruitmand bezorgservice</h3>
+            <h3>Fruitmand bezorgservice
+            Bestel online fruit</h3>
             <ul id="basket">
                 <li>
                 <h4>🍌 Bananen
