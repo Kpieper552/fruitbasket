@@ -1,5 +1,6 @@
 body {
-    background-color: linen;
+    background-color: lightyellow;
+
 }
 @media screen and (min-width: 1600px) {
     body {
@@ -99,7 +100,8 @@ h3 {
     flex-basis: 200px;
     flex-grow: 0;
     flex-shrink: 0;
-    height: 150px;
+    height: fit-content;
+
 }
 button {
     min-height: 50px;
