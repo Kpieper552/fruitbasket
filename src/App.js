@@ -18,6 +18,7 @@ function App() {
             <Tile titlearea="Fruitmand Bestelformulier"/>
             <FruitForm/>
             <Tile titlearea="Eet gezond Eet Fruit"/>
+            <Tile titlearea="Eet gezond Bestel Fruit"/>
             <Tile  img={fruit} imgDescription={fruit}/>
         </>
 );
