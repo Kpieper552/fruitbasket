@@ -1,14 +1,12 @@
 section {
-    background-color: #e2c681;
-    font-size: 10px;
-    overflow: hidden;
+    font-size: 20px;
+    margin-left: 20px;
     flex-basis: 300px;
     flex-grow: 1;
     flex-shrink: 1;
     display: flex;
     flex-direction: row;
-    color: #ffffff;
-    justify-content: center;
+    color: green;
     align-items: center;
-
+    justify-content: center;
 }

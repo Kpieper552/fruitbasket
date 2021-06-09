@@ -1,4 +1,4 @@
-# Doorontwikkeling (by Karina Pieper)
+
 Naar aanleiding van onderstaande uitgevoerde opdracht is de "Fruitbasket" als volgt uitgebreid.
 
 ### Uitbreiding
