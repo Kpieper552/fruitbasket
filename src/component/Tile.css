@@ -1,0 +1,14 @@
+section {
+    background-color: #e2c681;
+    font-size: 10px;
+    overflow: hidden;
+    flex-basis: 300px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: row;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+
+}
