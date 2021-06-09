@@ -1,3 +1,13 @@
+# Doorontwikkeling (by Karina Pieper)
+Naar aanleiding van onderstaande uitgevoerde opdracht is de "Fruitbasket" als volgt uitgebreid.
+
+### Uitbreiding
+* Componenten aangemaakt
+* Prijs toevoeging per Fruit product met sub counter per product
+* Overzicht aantal producten per Fruit met prijs per stuk  
+* Total counter van alle bestelde Fruit producten
+* Voorkeur optie voor bezorgdatum
+
 # Opdrachtbeschrijving
 
 ## Inleiding
